@@ -1,0 +1,7 @@
+sceptre
+awscli
+aws-sam-cli
+pytest
+pytest-mock
+sam
+cfn-flip

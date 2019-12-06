@@ -9,4 +9,5 @@ usage() {
 
 virtualenv venv
 . venv/bin/activate
-pip install sceptre
+
+pip install -r requirements.txt
