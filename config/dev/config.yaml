@@ -1,2 +1,10 @@
 region: ap-southeast-2
 template_bucket_name: alexharvey3118
+
+hooks:
+  before_create:
+    - !cmd "wget https://github.com/alexharv074/sceptre-sam-poc/releases/download/v1.0.0/sam.zip"
+    - !cmd "mkdir sam && mv sam.zip sam && cd sam && unzip sam.zip"
+
+  after_create:
+    - !cmd "rm -rf sam"
