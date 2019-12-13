@@ -4,7 +4,10 @@ template_bucket_name: alexharvey3118
 hooks:
   before_create:
     - !cmd "wget https://github.com/alexharv074/sceptre-sam-poc/releases/download/v1.0.0/sam.zip"
-    - !cmd "mkdir sam && mv sam.zip sam && cd sam && unzip sam.zip"
+    - !cmd "mkdir -p sam && mv sam.zip sam"
+    - !cmd "aws s3 mb s3://alexharvey3118"
+    - !cmd "cd sam && unzip sam.zip && sam build && sam package --s3-bucket alexharvey3118 --output-template-file /tmp/packaged.yaml"
 
   after_create:
-    - !cmd "rm -rf sam"
+    - !cmd "rm -rf sam /tmp/packaged.yaml"
+    - !cmd "aws s3 rb s3://alexharvey3118 --force"
