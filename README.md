@@ -21,13 +21,13 @@ Create the S3 bucket:
 Create the stack:
 
 ```text
-▶ sceptre create dev/hello.yaml
+▶ sceptre --dir=test create dev/hello.yaml  
 ```
 
 Delete the stack:
 
 ```text
-▶ sceptre delete dev/hello.yaml
+▶ sceptre --dir=test delete dev/hello.yaml
 ```
 
 ## License
